@@ -76,6 +76,14 @@ github "ibm-bluemix-mobile-services/bms-clientsdk-swift-push"
 1.  Drag and drop the [BMSPush.framework](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-push), [BMSCore.framework](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-core) and [BMSAnalyticsAPI.framework](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-analytics-api) to the iOS app.
 
 
+### Android 
+
+ Create a [firebase project](https://console.firebase.google.com) and add the following bundle ids for android,
+
+  1. Add `com.bmdpush.react` and `com.ibm.mobilefirstplatform.clientsdk.android.push` .
+
+Download the `google-services.json` and add inside the `node_modules` ➜ `bmd-push-react-native`  ➜ `android`.
+
 ## Set up
 
 ### iOS 

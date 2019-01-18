@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "349250455621",
-    "firebase_url": "https://reactpushbmd.firebaseio.com",
-    "project_id": "reactpushbmd",
-    "storage_bucket": "reactpushbmd.appspot.com"
+    "project_number": "xxxxxxxx",
+    "firebase_url": "https://xxxxx.firebaseio.com",
+    "project_id": "xxx",
+    "storage_bucket": "xxx.xxxx.xxx"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:349250455621:android:3fcaae6789a65a50",
+        "mobilesdk_app_id": "1:xxxx:sss:xxxxx",
         "android_client_info": {
           "package_name": "com.bmdpush.react"
         }
       },
       "oauth_client": [
         {
-          "client_id": "349250455621-05eritdft65f5rmq4lrgl5glkbnqg5s0.apps.googleusercontent.com",
+          "client_id": "xxxx-xxxx.xxx.xxx.xxx",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA6wPMVO3ljn39X35-XSiTuLz1uZtfJwlM"
+          "current_key": "xxxxx"
         }
       ],
       "services": {
@@ -39,20 +39,20 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:349250455621:android:7434c1807fe53b6a",
+        "mobilesdk_app_id": "1:xxxx:android:xxxx",
         "android_client_info": {
           "package_name": "com.ibm.mobilefirstplatform.clientsdk.android.push"
         }
       },
       "oauth_client": [
         {
-          "client_id": "349250455621-05eritdft65f5rmq4lrgl5glkbnqg5s0.apps.googleusercontent.com",
+          "client_id": "xxxx-xxxx.apps.xxxx.xxx",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA6wPMVO3ljn39X35-XSiTuLz1uZtfJwlM"
+          "current_key": "xxxxx-xxxxx"
         }
       ],
       "services": {
