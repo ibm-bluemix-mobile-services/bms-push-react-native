@@ -86,9 +86,12 @@ Open the iOS app in XCode and do the following ,
 2. Enable the `Background modes` for `Remote notifications` and `Background fetch`
 3. Go to `Build Settings` and make the following changes 
 
-   a. locate `Other Linker Flags` and add `-lc++` , `-ObjC` and `$(inherited)`.
-   b. locate `Framework Search Paths` and add `$(PROJECT_DIR)/Carthage/Build/iOS` as `non-recursive`.
-   c. locate `Library Search Paths` and add `$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)`  as `non-recursive`.
+   a. locate `Other Linker Flags` and add `-lc++` , `-ObjC` and `$(inherited)`
+   
+   b. locate `Framework Search Paths` and add `$(PROJECT_DIR)/Carthage/Build/iOS` as `non-recursive`
+   
+   c. locate `Library Search Paths` and add `$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)`  as `non-recursive`
+   
    d. locate `Always Embed Swift Standard Libraries` and make it `Yes`.
 
 
