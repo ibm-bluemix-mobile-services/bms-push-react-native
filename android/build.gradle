@@ -1,0 +1,50 @@
+
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+        mavenLocal()
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.4'
+        classpath 'com.google.gms:google-services:4.0.1'
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.1.0"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+    mavenLocal()
+    google()
+    jcenter()
+}
+
+dependencies {
+    compile 'com.facebook.react:react-native:+'
+    compile 'com.google.firebase:firebase-messaging:17.3.4'
+    compile 'com.google.firebase:firebase-core:16.0.4'
+    compile 'com.google.android.gms:play-services-base:16.0.1'
+    compile 'com.ibm.mobilefirstplatform.clientsdk.android:push:3.+'
+}
+apply plugin: 'com.google.gms.google-services'
+  

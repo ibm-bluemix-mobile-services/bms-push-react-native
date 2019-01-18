@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "349250455621",
+    "firebase_url": "https://reactpushbmd.firebaseio.com",
+    "project_id": "reactpushbmd",
+    "storage_bucket": "reactpushbmd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:349250455621:android:3fcaae6789a65a50",
+        "android_client_info": {
+          "package_name": "com.bmdpush.react"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "349250455621-05eritdft65f5rmq4lrgl5glkbnqg5s0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6wPMVO3ljn39X35-XSiTuLz1uZtfJwlM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:349250455621:android:7434c1807fe53b6a",
+        "android_client_info": {
+          "package_name": "com.ibm.mobilefirstplatform.clientsdk.android.push"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "349250455621-05eritdft65f5rmq4lrgl5glkbnqg5s0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6wPMVO3ljn39X35-XSiTuLz1uZtfJwlM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
