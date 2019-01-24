@@ -3,7 +3,7 @@
 
 IBM Cloud Mobile Services - Client SDK React Native for Push service
 
-This is the Push component of the React Native SDK for [IBM Cloud Mobile Services](https://console.ng.net/docs/mobile/index.html).
+This is the Push component of the React Native SDK for [IBM Cloud Mobile Services](https://cloud.ibm.com/docs/services/mobilepush/index.html#gettingstartedtemplate).
 
 
 ## Requirements:
@@ -11,7 +11,7 @@ This is the Push component of the React Native SDK for [IBM Cloud Mobile Service
 - Xcode 10+
 - Android: minSdkVersion 16+, compileSdkVersion 28+
 - React Native >= 0.57.8
-- React Native cli >= 2.0.1
+- React Native CLI >= 2.0.1
 
 ## Installation
 
@@ -201,7 +201,7 @@ alert("Init Error: " + e);
 
 });
 
-// Initialize for push notifications with passing options
+// Initialize for push notifications by passing options
 // Initialize for iOS actionable push notifications, custom deviceId and varibales for Parameterize Push Notifications 
 
 var optionsJson = {"categories": { "Category_Name1":[
@@ -322,7 +322,7 @@ alert("Error : " + e);
 
 * Visit the **[IBM Cloud Developers Community](https://developer.ibm.com/bluemix/)**.
 
-* [Getting started with IBM MobileFirst Platform for iOS](https://www.ng.bluemix.net/docs/mobile/index.html)
+* [Getting started with IBM MobileFirst Platform for iOS](https://cloud.ibm.com/docs/services/mobilepush/index.html#gettingstartedtemplate)
 
 ### Connect with IBM Cloud
 
