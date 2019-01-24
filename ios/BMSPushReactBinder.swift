@@ -382,7 +382,6 @@ import UserNotificationsUI
     
     @objc func didReceiveRemoteNotification(notification:Notification) {
         
-        print("ha haha 7888")
         guard let userinfo = notification.userInfo else {
             return
         }

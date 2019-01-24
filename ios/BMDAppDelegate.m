@@ -100,7 +100,7 @@ static IMP handleActionWithIdentifierOriginalMethod = NULL;
     [userInf addEntriesFromDictionary:userInfo];
     [userInf setValue:identifier forKey:@"identifierName"];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:REACTBMDPushHandleActionWithIdentifier object:userInf];
+    [[NSNotificationCenter defaultCenter] postNotificationName:REACTBMDPushHandleActionWithIdentifier object:nil userInfo:userInf];
     completionHandler();
 }
 
