@@ -1,7 +1,7 @@
 
 # react-native-bmd-push-react
 
-IBM Cloud Mobile Services - Client SDK React Native for Push service
+IBM Cloud Mobile Services - Client SDK React Native for Push Notifications service
 
 This is the Push component of the React Native SDK for [IBM Cloud Mobile Services](https://cloud.ibm.com/docs/services/mobilepush/index.html#gettingstartedtemplate).
 
