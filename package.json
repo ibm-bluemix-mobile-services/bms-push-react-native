@@ -1,23 +1,25 @@
 
 {
-  "name": "bmd-push-react-native",
+  "name": "react-native-bmd-push-react",
   "version": "1.0.0",
-  "description": "IBM Cloud Push Notifications service React Native SDK",
+  "description": "React Native plugin for IBM Cloud Push Notifications service",
   "main": "index.js",
   "author": "IBM Cloud Mobile Service",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "homepage":"https://github.com/ibm-bluemix-mobile-services/bms-push-react-native",
   "keywords": [
+    "IBM Cloud",
+    "IBM Cloud Push service React native",
     "react-native",
     "react",
     "react-component",
     "ios",
     "android",
-    "IBM Cloud",
-    "IBM Cloud Push service React native"
+    "Push Notifications"
   ],
-  "license": "Apache-2.0",
+  "license": "Apache version 2.0",
   "peerDependencies": {
     "react-native": "^0.41.2",
     "react-native-windows": "0.41.0-rc.1"
@@ -27,6 +29,9 @@
       "name": "Anantha Krishnan K G",
       "email": "agirijak@in.ibm.com"
     }
-  ]
-  
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ibm-bluemix-mobile-services/bms-push-react-native.git"
+  }
 }
