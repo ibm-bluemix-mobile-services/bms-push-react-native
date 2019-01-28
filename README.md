@@ -188,43 +188,43 @@ To initialize Push use the following code
 
 // Initialize for push notifications without passing options
 Push.init({
-"appGUID":"xxxxxx-xxxx-41xxxx67-xxxxx-xxxxx",
-"clientSecret":"xxxxx-xxxxx-xxxx-xxxxx-xxxxxxx",
-"region":".ng.bluemix.net"
+    "appGUID":"xxxxxx-xxxx-41xxxx67-xxxxx-xxxxx",
+    "clientSecret":"xxxxx-xxxxx-xxxx-xxxxx-xxxxxxx",
+    "region":".ng.bluemix.net"
 }).then(function(response) {
 
-alert("InitSuccess: " + response);
+    alert("InitSuccess: " + response);
 
 }).catch(function(e) {
 
-alert("Init Error: " + e);
+    alert("Init Error: " + e);
 
 });
 
 // Initialize for push notifications by passing options
 // Initialize for iOS actionable push notifications, custom deviceId and varibales for Parameterize Push Notifications 
 
-var optionsJson = {"categories": { "Category_Name1":[
-{
-"IdentifierName":"IdentifierName_1",
-"actionName":"actionName_1",
-"IconName":"IconName_1"
-},
-{
-"IdentifierName":"IdentifierName_2",
-"actionName":"actionName_2",
-"IconName":"IconName_2"
-}
-]},
-"deviceId":"mydeviceId",
-"variables":{"username":"ananth","accountNumber":"536475869765475869"}
-};
+var optionsJson = {
+    "categories": { 
+        "Category_Name1":[{
+            "IdentifierName":"IdentifierName_1",
+            "actionName":"actionName_1",
+            "IconName":"IconName_1"
+            },{
+            "IdentifierName":"IdentifierName_2",
+            "actionName":"actionName_2",
+            "IconName":"IconName_2"
+            }
+        ]},
+        "deviceId":"mydeviceId",
+        "variables":{"username":"ananth","accountNumber":"536475869765475869"}
+    };
 
 Push.init({
-"appGUID":"xxxxxx-xxxx-41xxxx67-xxxxx-xxxxx",
-"clientSecret":"xxxxx-xxxxx-xxxx-xxxxx-xxxxxxx",
-"region":".ng.bluemix.net",
-"options": optionsJson
+    "appGUID":"xxxxxx-xxxx-41xxxx67-xxxxx-xxxxx",
+    "clientSecret":"xxxxx-xxxxx-xxxx-xxxxx-xxxxxxx",
+    "region":".ng.bluemix.net",
+    "options": optionsJson
 }).then(function(response) {
 
 alert("Init Success: " + response);
