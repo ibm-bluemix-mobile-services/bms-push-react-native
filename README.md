@@ -227,11 +227,11 @@ Push.init({
     "options": optionsJson
 }).then(function(response) {
 
-alert("Init Success: " + response);
+    alert("Init Success: " + response);
 
 }).catch(function(e) {
 
-alert("Init Error: " + e);
+    alert("Init Error: " + e);
 });
 
 ```
@@ -246,18 +246,18 @@ alert("Init Error: " + e);
 // Register device for push notification without UserId
 var options = {};
 Push.register(options).then(function(response) {
-alert("Success: " + response);
+    alert("Success: " + response);
 }).catch(function(e) {
-alert("Register Error: " + e);
+    alert("Register Error: " + e);
 });
 
 // Register device for push notification with UserId
 
 var options = {"userId":"ananthreact"};
-Push.register(options).then(function(response) {
-alert("Success: " + response);
+    Push.register(options).then(function(response) {
+    alert("Success: " + response);
 }).catch(function(e) {
-alert("Register Error: " + e);
+    alert("Register Error: " + e);
 });
 ```
 
@@ -265,18 +265,18 @@ alert("Register Error: " + e);
 
 ```JS
 push.unregisterDevice().then(function(response) {
-alert("Success unregisterDevice : " + response);
+    alert("Success unregisterDevice : " + response);
 }).catch(function(e) {
-alert("UnRegister error : " + e);
+    alert("UnRegister error : " + e);
 });
 ```
 ### Retrieve Available Tags
 
 ```JS
 Push.retrieveAvailableTags().then(function(response) {
-alert("get tags : " + response);
+    alert("get tags : " + response);
 }).catch(function(e) {
-alert("get tags error : " + e);
+    alert("get tags error : " + e);
 });
 ```
 
@@ -284,9 +284,9 @@ alert("get tags error : " + e);
 
 ```JS
 Push.subscribe(response[0]).then(function(response) {
-alert("subscribe tags : " + response);
+    alert("subscribe tags : " + response);
 }).catch(function(e) {
-alert("subscribe tags error : " + e);
+    alert("subscribe tags error : " + e);
 });
 ```
 
@@ -295,9 +295,9 @@ alert("subscribe tags error : " + e);
 ```JS
 
 Push.retrieveSubscriptions().then(function(response) {
-alert("retrieveSubscriptions tags : " + response);
+    alert("retrieveSubscriptions tags : " + response);
 }).catch(function(e){
-alert("error retrieveSubscriptions : " + e);
+    alert("error retrieveSubscriptions : " + e);
 });
 ```
 
@@ -306,9 +306,9 @@ alert("error retrieveSubscriptions : " + e);
 ```JS
 var tag = "tag1";
 Push.unsubscribe(tag).then(function(response) {
-alert("unsubscribe tag : " + response);
+    alert("unsubscribe tag : " + response);
 }).catch(function(e) {
-alert("Error : " + e);
+    alert("Error : " + e);
 });
 ```
 
