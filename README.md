@@ -18,7 +18,7 @@ This is the Push component of the React Native SDK for [IBM Cloud Mobile Service
 Install the `bmd-push-react-native` using ,
 
 ```JS
-$ npm install bmd-push-react-native --save
+$ react-native install bmd-push-react-native
 ```
 
 ### Mostly automatic installation
@@ -178,7 +178,7 @@ Now you can build and run the android app from android studio or using the `reac
 Import the following dependecnice ,
 
 ```JS
-import {Push} from 'react-native-bmd-push-react';
+import {Push} from 'bmd-push-react-native';
 import { DeviceEventEmitter } from 'react-native';
 ```
 
