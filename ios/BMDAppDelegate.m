@@ -109,17 +109,12 @@ static IMP handleActionWithIdentifierOriginalMethod = NULL;
     
     if (notification)
     {
-        NSLog(@"ha ha ha1");
         NSDictionary *launchOptions = [notification userInfo];
         if (launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey]) {
-            NSLog(@"ha ha ha2");
             NSDictionary *userInfo = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
             if (userInfo) {
-                NSLog(@"ha ha ha3");
                 double delayInSeconds = 7.0;
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-                    NSLog(@"ha ha ha4");
-                    NSLog(@"ha ha ha 5 :  %@ ", userInfo);
                     [[NSNotificationCenter defaultCenter] postNotificationName:REACTBMDPushDidReceiveRemoteNotifications object:nil userInfo:userInfo];
                 });
             }
