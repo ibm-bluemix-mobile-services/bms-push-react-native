@@ -388,6 +388,8 @@ import UserNotificationsUI
         
         var notif: [String : AnyObject] = [:]
         
+        sendStatus(userInfo: userinfo as NSDictionary)
+        
         if let _ = userinfo["has-template"] as? Int {
             BMSPushClient.sharedInstance.didReciveBMSPushNotification(userInfo: userinfo) { (res, error) in
                 return
@@ -408,6 +410,19 @@ import UserNotificationsUI
             }
             
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: REACTBMDPushSendPushNotifications) , object: nil, userInfo: notif)
+        }
+    }
+
+    private func sendStatus(userInfo: NSDictionary) {
+        let push =  BMSPushClient.sharedInstance
+        let respJson = userInfo.value(forKey: "payload") as! String
+        let data = respJson.data(using: String.Encoding.utf8)
+        
+        let jsonResponse:NSDictionary = try! JSONSerialization.jsonObject(with: data! , options: JSONSerialization.ReadingOptions.allowFragments) as! NSDictionary
+        
+        let messageId:String = jsonResponse.value(forKey: "nid") as! String
+        push.sendMessageDeliveryStatus(messageId: messageId) { (res, ss, ee) in
+            print("Send message status to the Push server")
         }
     }
     

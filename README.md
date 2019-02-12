@@ -76,15 +76,32 @@ github "ibm-bluemix-mobile-services/bms-clientsdk-swift-push"
 1.  Drag and drop the [BMSPush.framework](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-push), [BMSCore.framework](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-core) and [BMSAnalyticsAPI.framework](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-analytics-api) to the iOS app.
 
 
-### Android 
+### Android FCM
 
  Create a [firebase project](https://console.firebase.google.com) and add the following bundle ids for android,
 
-  1. Add `com.bmdpush.react` and `com.ibm.mobilefirstplatform.clientsdk.android.push` .
+  1. Add `your bundle Id` and `com.ibm.mobilefirstplatform.clientsdk.android.push` . Download the `google-services.json` and add inside the `android` ➜ `app`.
 
-Download the `google-services.json` and add inside the `node_modules` ➜ `bmd-push-react-native`  ➜ `android`.
+  2. In the root `build.gradle` ➜  `buildscript` add the following ,
 
-## Set up
+  ```
+   repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.google.gms:google-services:4.0.1'
+    }
+  ```
+
+3. Go to `android` ➜  `app` ➜ `build.gradle` and add the following after `dependencies {....}`,
+
+    ```
+      apply plugin: 'com.google.gms.google-services'
+    ```
+    
+ ## Set up
 
 ### iOS 
 
