@@ -64,7 +64,7 @@ compile project(':bmd-push-react-native')
 1. Create a cart file inside the iOS app folder. Carthage file should be like this ,
 
 ```
-github "ibm-bluemix-mobile-services/bms-clientsdk-swift-push"
+github "ibm-bluemix-mobile-services/bms-clientsdk-swift-push" ~> 3.4.2
 ```  
 
 2. Do the `carthage update` in terminal.
