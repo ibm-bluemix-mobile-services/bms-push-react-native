@@ -217,6 +217,7 @@ public class RNBmdPushReactModule extends ReactContextBaseJavaModule implements 
         public void onReceive(MFPSimplePushNotification message) {
           WritableMap resultData = new WritableNativeMap();
           resultData.putString("message", message.getAlert());
+          resultData.putString("title", message.getAndroidTitle());
           resultData.putString("payload", message.getPayload());
           resultData.putString("identifierName", message.actionName);
           reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
