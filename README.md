@@ -6,6 +6,11 @@ IBM Cloud Mobile Services - Client SDK React Native for Push Notifications servi
 This is the Push component of the React Native SDK for [IBM Cloud Mobile Services](https://cloud.ibm.com/docs/services/mobilepush/index.html#gettingstartedtemplate).
 
 
+
+## Version History
+
+* 1.2.0 - Added Android title
+
 ## Requirements:
 
 - Xcode 10+
