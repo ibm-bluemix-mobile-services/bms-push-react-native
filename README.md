@@ -79,7 +79,10 @@ github "ibm-bluemix-mobile-services/bms-clientsdk-swift-push" ~> 3.4.2
 
 1.  Drag and drop the [BMSPush.framework](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-push), [BMSCore.framework](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-core) and [BMSAnalyticsAPI.framework](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-analytics-api) to the iOS app.
 
->**Note**:  If you are facing an issue like this `This copy of libswiftCore.dylib requires an OS version prior to 12.2.0.`, to resolve this issue - add an empty swift file inside your app from Xcode. 
+>**Note**
+>1. If you are facing an issue like this `This copy of libswiftCore.dylib requires an OS version prior to 12.2.0.`, to resolve this issue - add an empty swift file inside your app from Xcode.
+>2. Carthage may fail with the new Xcode build system. Please use the legacy build system for building carthage.
+
 
 
 ### Android FCM
