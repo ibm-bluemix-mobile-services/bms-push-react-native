@@ -59,7 +59,6 @@ project(':bmd-push-react-native').projectDir = new File(rootProject.projectDir, 
 compile project(':bmd-push-react-native')
 ```
 
-
 ## Dependencies,
 
 ### iOS
@@ -79,6 +78,8 @@ github "ibm-bluemix-mobile-services/bms-clientsdk-swift-push" ~> 3.4.2
 #### Add dependencies framework directly .
 
 1.  Drag and drop the [BMSPush.framework](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-push), [BMSCore.framework](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-core) and [BMSAnalyticsAPI.framework](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-analytics-api) to the iOS app.
+
+>**Note**:  If you are facing an issue like this `This copy of libswiftCore.dylib requires an OS version prior to 12.2.0.`, to resolve this issue - add an empty swift file inside your app from Xcode. 
 
 
 ### Android FCM
