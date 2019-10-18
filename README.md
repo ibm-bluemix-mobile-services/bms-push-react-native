@@ -6,6 +6,11 @@ IBM Cloud Mobile Services - Client SDK React Native for Push Notifications servi
 This is the Push component of the React Native SDK for [IBM Cloud Mobile Services](https://cloud.ibm.com/docs/services/mobilepush/index.html#gettingstartedtemplate).
 
 
+
+## Version History
+
+* 1.2.0 - Added Android title
+
 ## Requirements:
 
 - Xcode 10+
@@ -54,7 +59,6 @@ project(':bmd-push-react-native').projectDir = new File(rootProject.projectDir, 
 compile project(':bmd-push-react-native')
 ```
 
-
 ## Dependencies,
 
 ### iOS
@@ -64,7 +68,7 @@ compile project(':bmd-push-react-native')
 1. Create a cart file inside the iOS app folder. Carthage file should be like this ,
 
 ```
-github "ibm-bluemix-mobile-services/bms-clientsdk-swift-push"
+github "ibm-bluemix-mobile-services/bms-clientsdk-swift-push" ~> 3.4.2
 ```  
 
 2. Do the `carthage update` in terminal.
@@ -74,6 +78,11 @@ github "ibm-bluemix-mobile-services/bms-clientsdk-swift-push"
 #### Add dependencies framework directly .
 
 1.  Drag and drop the [BMSPush.framework](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-push), [BMSCore.framework](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-core) and [BMSAnalyticsAPI.framework](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-analytics-api) to the iOS app.
+
+>**Note**
+>1. If you are facing an issue like this `This copy of libswiftCore.dylib requires an OS version prior to 12.2.0.`, to resolve this issue - add an empty swift file inside your app from Xcode.
+>2. Carthage may fail with the new Xcode build system. Please use the legacy build system for building carthage.
+
 
 
 ### Android FCM
@@ -253,7 +262,7 @@ Push.init({
 
 ```
 
-**IMPORTANT: These are the following supported `regions` - `".ng.bluemix.net", ".eu-gb.bluemix.net" , ".au-syd.bluemix.net", ".eu-de.bluemix.net" and ".us-east.bluemix.net"`
+**IMPORTANT: These are the following supported `regions` - `".ng.bluemix.net", ".eu-gb.bluemix.net" , ".au-syd.bluemix.net", ".eu-de.bluemix.net", and ".us-east.bluemix.net"`
 
 
 ### Register for push 
