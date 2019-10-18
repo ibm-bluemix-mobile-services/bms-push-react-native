@@ -3,9 +3,7 @@ Pod::Spec.new do |s|
   s.name         = "RNBmdPushReact"
   s.version      = "1.0.0"
   s.summary      = "RNBmdPushReact"
-  s.description  = <<-DESC
-                  RNBmdPushReact
-                   DESC
+  s.description  = "RNBmdPushReact"
   s.homepage     = ""
   s.license      = "MIT"
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
