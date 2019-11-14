@@ -262,7 +262,7 @@ Push.init({
 
 ```
 
-**IMPORTANT: These are the following supported `regions` - `".ng.bluemix.net", ".eu-gb.bluemix.net" , ".au-syd.bluemix.net", ".eu-de.bluemix.net", and ".us-east.bluemix.net"`
+**IMPORTANT: These are the following supported `regions` - `".ng.bluemix.net", ".eu-gb.bluemix.net" , ".au-syd.bluemix.net", ".eu-de.bluemix.net", ".us-east.bluemix.net", and ".jp-tok.bluemix.net"`
 
 
 ### Register for push 
