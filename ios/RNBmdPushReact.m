@@ -2,8 +2,9 @@
 #import "RNBmdPushReact.h"
 #import "BMDAppDelegate.h"
 #import "BMDReactConstants.h"
-#import "RNBmdPushReact-Swift.h"
-
+//#import "RNBmdPushReact-Swift.h"
+#import <RNBmdPushReact/RNBmdPushReact-Swift.h>
+//@class BMSPushReactBinder;
 @implementation RNBmdPushReact
 
 @synthesize registerPromiseReject, registerPromiseResolve, bmdNotificationsCallback;
