@@ -9,6 +9,7 @@ This is the Push component of the React Native SDK for [IBM Cloud Mobile Service
 
 ## Version History
 
+* 1.3.0 - Added support for CocoaPods and tokyo region 
 * 1.2.0 - Added Android title
 
 ## Requirements:
@@ -63,27 +64,34 @@ compile project(':bmd-push-react-native')
 
 ### iOS
 
-#### Carthage 
+#### CocoaPods 
 
-1. Create a cart file inside the iOS app folder. Carthage file should be like this ,
-
+1. Open the `ios` directory and add `use_frameworks!` and `Swift version` in the `Podfile`.
+```Swift
+  use_frameworks!
+  ENV['SWIFT_VERSION'] = '5.0'
 ```
-github "ibm-bluemix-mobile-services/bms-clientsdk-swift-push" ~> 3.4.2
-```  
+OR 
 
-2. Do the `carthage update` in terminal.
+```Swift
+use_frameworks!
 
-3. open the Project in XCode and add the frameworks inside the `Embedded Binaries`
-
-#### Add dependencies framework directly .
-
-1.  Drag and drop the [BMSPush.framework](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-push), [BMSCore.framework](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-core) and [BMSAnalyticsAPI.framework](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-analytics-api) to the iOS app.
-
->**Note**
->1. If you are facing an issue like this `This copy of libswiftCore.dylib requires an OS version prior to 12.2.0.`, to resolve this issue - add an empty swift file inside your app from Xcode.
->2. Carthage may fail with the new Xcode build system. Please use the legacy build system for building carthage.
-
-
+  target 'Your Target Name' do
+	  pod 'RNBmdPushReact', :path => '../node_modules/bmd-push-react-native'
+  end
+  post_install do |installer|
+    installer.pods_project.targets.each do |target|
+      if ['BMSPush', 'BMSCore', 'BMSAnalyticsAPI'].include? target.name
+        target.build_configurations.each do |config|
+          config.build_settings['SWIFT_VERSION'] = '5.0'
+        end
+      end
+    end
+  end
+```
+2. run `pod install` and open your `<your-app>.xcworkspace` in Xcode.
+3. You need to add an empty Swift file in the app to build it successfully. This is for the swift bridging header. 
+![image](./images/rct_ios.png)
 
 ### Android FCM
 
@@ -121,13 +129,6 @@ Open the iOS app in XCode and do the following ,
 3. Go to `Build Settings` and make the following changes 
 
    a. locate `Other Linker Flags` and add `-lc++` , `-ObjC` and `$(inherited)`
-   
-   b. locate `Framework Search Paths` and add `$(PROJECT_DIR)/Carthage/Build/iOS` as `non-recursive`
-   
-   c. locate `Library Search Paths` and add `$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)`  as `non-recursive`
-   
-   d. locate `Always Embed Swift Standard Libraries` and make it `Yes`.
-
 
 Now you can build and run the iOS app from Xcode or using the `react-native run-ios` command.
 
@@ -262,7 +263,7 @@ Push.init({
 
 ```
 
-**IMPORTANT: These are the following supported `regions` - `".ng.bluemix.net", ".eu-gb.bluemix.net" , ".au-syd.bluemix.net", ".eu-de.bluemix.net", and ".us-east.bluemix.net"`
+**IMPORTANT: These are the following supported `regions` - `".ng.bluemix.net", ".eu-gb.bluemix.net" , ".au-syd.bluemix.net", ".eu-de.bluemix.net", ".us-east.bluemix.net", and ".jp-tok.bluemix.net"`
 
 
 ### Register for push 

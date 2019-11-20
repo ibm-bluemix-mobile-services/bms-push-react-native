@@ -7,15 +7,20 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/ibm-bluemix-mobile-services/bms-push-react-native"
   s.license      = "MIT"
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
-  s.author             = { "author" => "author@domain.cn" }
-  s.platform     = :ios, "7.0"
+  s.author             = { "author" => "agirijak@in.ibm.com" }
+  s.platform     = :ios, "11.0"
   s.source       = { :git => "https://github.com/author/RNBmdPushReact.git", :tag => "master" }
-  s.source_files  = "RNBmdPushReact/**/*.{h,m}"
+  s.source_files  = "ios/*.{h,m,swift}"
   s.requires_arc = true
-
+  s.xcconfig = {
+    "HEADER_SEARCH_PATHS" => "${PODS_ROOT}/Headers/Public/React"
+  }
 
   s.dependency "React"
   #s.dependency "others"
+  s.dependency 'BMSPush', '~> 3.4'
+  s.swift_versions = "4.0"
+  s.static_framework = true  
 
 end
 
