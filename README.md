@@ -3,16 +3,40 @@
 
 IBM Cloud Mobile Services - Client SDK React Native for Push Notifications service
 
-This is the Push component of the React Native SDK for [IBM Cloud Mobile Services](https://cloud.ibm.com/docs/services/mobilepush/index.html#gettingstartedtemplate).
 
+The [IBM Cloud Push Notifications service](https://cloud.ibm.com/catalog/services/push-notifications) provides a unified push service to send real-time notifications to mobile and web applications. The SDK enables react-native apps to receive push notifications sent from the service. 
 
+Ensure that you go through [IBM Cloud Push Notifications service documentation](https://cloud.ibm.com/docs/services/mobilepush?topic=mobile-pushnotification-gettingstartedtemplate#gettingstartedtemplate) before you start.
+
+## Contents
+
+- [Version History](#version-history)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+    - [Automatic installation](#mostly-automatic-installation)
+    - [Manual installation](#manual-installation)
+- [Dependencies](#dependencies)
+    - [iOS](#ios)
+    - [Android FCM](#android-fcm)
+- [Set up SDKs](#set-up-sdks)
+    - [iOS](#set-up-ios)
+    - [Android](#set-up-android)
+- [Initialize SDK](#initialize-sdk)
+- [Register for notifications](#register-for-notifications)
+- [UnRegister from push](#unregister-from-push )
+- [Push Notification service tags](#push-notification-service-tags)
+  - [Retrieve tags](#retrieve-tags)
+  - [Subscribe to a tag](#subscribe-to-a-tag)
+  - [Retrieve subscriptions](#retrieve-subscriptions)
+  - [Unsubscribing from tag](#unsubscribing-from-tag)
+- [Samples and videos](#samples-and-videos)
 
 ## Version History
 
 * 1.3.0 - Added support for CocoaPods and tokyo region 
 * 1.2.0 - Added Android title
 
-## Requirements:
+## Prerequisites
 
 - Xcode 10+
 - Android: minSdkVersion 16+, compileSdkVersion 28+
@@ -21,14 +45,13 @@ This is the Push component of the React Native SDK for [IBM Cloud Mobile Service
 
 ## Installation
 
+### Mostly automatic installation
+
 Install the `bmd-push-react-native` using ,
 
 ```JS
 $ react-native install bmd-push-react-native
 ```
-
-### Mostly automatic installation
-
 You can link the package like this,
 
 ````JS
@@ -39,13 +62,13 @@ $ react-native link bmd-push-react-native
 
 If you want to link it manually ,
 
-#### iOS
+- iOS
 
 1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
 2. Go to `node_modules` ➜ `bmd-push-react-native` and add `RNBmdPushReact.xcodeproj`
 3. In XCode, in the project navigator, select your project. Add `libRNBmdPushReact.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
 
-#### Android
+- Android
 
 1. Open up `android/app/src/main/java/[...]/MainActivity.java`
 - Add `import com.bmdpush.react.RNBmdPushReactPackage;` to the imports at the top of the file
@@ -60,7 +83,7 @@ project(':bmd-push-react-native').projectDir = new File(rootProject.projectDir, 
 compile project(':bmd-push-react-native')
 ```
 
-## Dependencies,
+## Dependencies
 
 ### iOS
 
@@ -101,7 +124,7 @@ use_frameworks!
 
   2. In the root `build.gradle` ➜  `buildscript` add the following ,
 
-  ```
+  ```XML
    repositories {
         google()
         jcenter()
@@ -114,13 +137,13 @@ use_frameworks!
 
 3. Go to `android` ➜  `app` ➜ `build.gradle` and add the following after `dependencies {....}`,
 
-    ```
+    ```XML
       apply plugin: 'com.google.gms.google-services'
     ```
     
- ## Set up
+## Set up SDKs
 
-### iOS 
+### Set up iOS 
 
 Open the iOS app in XCode and do the following ,
 
@@ -133,21 +156,21 @@ Open the iOS app in XCode and do the following ,
 Now you can build and run the iOS app from Xcode or using the `react-native run-ios` command.
 
 
-### Android 
+### Set up Android 
 
 Add the following inside the `AndroidManifest.xml` file .
 
 1. Add  `xmlns:tools="http://schemas.android.com/tools"` in the `<manifest ...> ` tag
 
 For example 
-```
+```XML
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:tools="http://schemas.android.com/tools" package="com.pushsample">
 ```
 
 2. Add the following permissions,
 
-```
+```XML
 <uses-permission android:name="android.permission.WAKE_LOCK" />
 <uses-permission android:name="android.permission.GET_ACCOUNTS" />
 <uses-permission android:name="android.permission.USE_CREDENTIALS" />
@@ -158,7 +181,7 @@ xmlns:tools="http://schemas.android.com/tools" package="com.pushsample">
 3. Add `tools:replace="android:allowBackup"` inside the `<application ..>` tag
 
 For example 
-```
+```XML
 <application
 android:name=".MainApplication"
 android:label="@string/app_name"
@@ -171,7 +194,7 @@ tools:replace="android:allowBackup">
 
 4. Add the following inside the `<activity android:name=".MainActivity" ....>`,
 
-```
+```XML
 <intent-filter>
 <action android:name="yourapp.bundle.IBMPushNotification" />
 <category android:name="android.intent.category.DEFAULT" />
@@ -180,7 +203,7 @@ tools:replace="android:allowBackup">
 
 5. Add the following lines,
 
-```
+```XML
 <activity android:name="com.ibm.mobilefirstplatform.clientsdk.android.push.api.MFPPushNotificationHandler" android:theme="@android:style/Theme.NoDisplay"/>
 
 <service android:exported="true" android:name="com.ibm.mobilefirstplatform.clientsdk.android.push.api.MFPPushIntentService">
@@ -198,9 +221,7 @@ tools:replace="android:allowBackup">
 Now you can build and run the android app from android studio or using the `react-native run-android` command.
 
 
-## Usage
-
-### Initialization
+## Initialize SDK
 
 Import the following dependecnice ,
 
@@ -209,7 +230,9 @@ import {Push} from 'bmd-push-react-native';
 import { DeviceEventEmitter } from 'react-native';
 ```
 
-To initialize Push use the following code 
+To initialize Push use the following code,
+
+- Initialize without additional options
 
 ```JS
 
@@ -227,7 +250,10 @@ Push.init({
     alert("Init Error: " + e);
 
 });
+```
+- Initialize with additional options
 
+```JS
 // Initialize for push notifications by passing options
 // Initialize for iOS actionable push notifications, custom deviceId and varibales for Parameterize Push Notifications 
 
@@ -266,29 +292,37 @@ Push.init({
 **IMPORTANT: These are the following supported `regions` - `".ng.bluemix.net", ".eu-gb.bluemix.net" , ".au-syd.bluemix.net", ".eu-de.bluemix.net", ".us-east.bluemix.net", and ".jp-tok.bluemix.net"`
 
 
-### Register for push 
+## Register for notifications
 
-```JS
+The following options are supported:
 
-// Register device for push notification without UserId
-var options = {};
-Push.register(options).then(function(response) {
-    alert("Success: " + response);
-}).catch(function(e) {
-    alert("Register Error: " + e);
-});
+- Register without UserId
+    
+    ```JS
 
-// Register device for push notification with UserId
-
-var options = {"userId":"ananthreact"};
+    // Register device for push notification without UserId
+    var options = {};
     Push.register(options).then(function(response) {
-    alert("Success: " + response);
-}).catch(function(e) {
-    alert("Register Error: " + e);
-});
-```
+      alert("Success: " + response);
+    }).catch(function(e) {
+        alert("Register Error: " + e);
+    });
+    ```
 
-### UnRegister from push 
+- Register with UserId
+
+    ```JS
+    // Register device for push notification with UserId
+
+    var options = {"userId":"ananthreact"};
+        Push.register(options).then(function(response) {
+        alert("Success: " + response);
+    }).catch(function(e) {
+        alert("Register Error: " + e);
+    });
+    ```
+
+## UnRegister from push 
 
 ```JS
 push.unregisterDevice().then(function(response) {
@@ -297,7 +331,10 @@ push.unregisterDevice().then(function(response) {
     alert("UnRegister error : " + e);
 });
 ```
-### Retrieve Available Tags
+
+## Push Notification service tags
+
+### Retrieve tags
 
 ```JS
 Push.retrieveAvailableTags().then(function(response) {
@@ -317,7 +354,7 @@ Push.subscribe(response[0]).then(function(response) {
 });
 ```
 
-### Retrieve Subscriptions
+### Retrieve subscriptions
 
 ```JS
 
@@ -328,7 +365,7 @@ Push.retrieveSubscriptions().then(function(response) {
 });
 ```
 
-### Unsubscribe from tag 
+### Unsubscribing from tag 
 
 ```JS
 var tag = "tag1";
@@ -339,29 +376,28 @@ Push.unsubscribe(tag).then(function(response) {
 });
 ```
 
+## Samples and videos
 
+* For samples, visit - [Github Sample](https://github.com/ibm-bluemix-mobile-services/bms-samples-swift-hellopush)
 
-### Samples & videos
+* For video tutorials visit - [IBM Cloud Push Notifications](https://www.youtube.com/playlist?list=PLTroxxTPN9dIZYn9IU-IOcQePO-u5r0r4)
 
-* Please visit for samples - [Github Sample](https://github.com/ibm-bluemix-push-notifications/bms-samples-react-native-hellopush)
+### Learning more
 
-### Learning More
+* Visit the **[IBM Cloud Developers Community](https://developer.ibm.com/depmodels/cloud/)**.
 
-* Visit the **[IBM Cloud Developers Community](https://developer.ibm.com/bluemix/)**.
-
-* [Getting started with IBM MobileFirst Platform for iOS](https://cloud.ibm.com/docs/services/mobilepush/index.html#gettingstartedtemplate)
+* [Getting started with IBM MobileFirst Platform for iOS](https://cloud.ibm.com/docs/mobile)
 
 ### Connect with IBM Cloud
 
-[Twitter](https://twitter.com/ibmbluemix) |
-[YouTube](https://www.youtube.com/playlist?list=PLzpeuWUENMK2d3L5qCITo2GQEt-7r0oqm) |
-[Blog](https://developer.ibm.com/bluemix/blog/) |
-[Facebook](https://www.facebook.com/ibmbluemix) |
-[Meetup](http://www.meetup.com/bluemix/)
+[Twitter](https://twitter.com/IBMCloud) |
+[YouTube](https://www.youtube.com/watch?v=AVPoBWScRQc) |
+[Blog](https://developer.ibm.com/depmodels/cloud/) |
+[Facebook](https://www.facebook.com/ibmcloud) |
 
 
 =======================
-Copyright 2016 IBM Corp.
+Copyright 2020-21 IBM Corp.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
