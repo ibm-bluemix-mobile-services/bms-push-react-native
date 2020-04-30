@@ -124,7 +124,7 @@ use_frameworks!
 
   2. In the root `build.gradle` ➜  `buildscript` add the following ,
 
-  ```
+  ```XML
    repositories {
         google()
         jcenter()
@@ -137,7 +137,7 @@ use_frameworks!
 
 3. Go to `android` ➜  `app` ➜ `build.gradle` and add the following after `dependencies {....}`,
 
-    ```
+    ```XML
       apply plugin: 'com.google.gms.google-services'
     ```
     
@@ -163,14 +163,14 @@ Add the following inside the `AndroidManifest.xml` file .
 1. Add  `xmlns:tools="http://schemas.android.com/tools"` in the `<manifest ...> ` tag
 
 For example 
-```
+```XML
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:tools="http://schemas.android.com/tools" package="com.pushsample">
 ```
 
 2. Add the following permissions,
 
-```
+```XML
 <uses-permission android:name="android.permission.WAKE_LOCK" />
 <uses-permission android:name="android.permission.GET_ACCOUNTS" />
 <uses-permission android:name="android.permission.USE_CREDENTIALS" />
@@ -181,7 +181,7 @@ xmlns:tools="http://schemas.android.com/tools" package="com.pushsample">
 3. Add `tools:replace="android:allowBackup"` inside the `<application ..>` tag
 
 For example 
-```
+```XML
 <application
 android:name=".MainApplication"
 android:label="@string/app_name"
@@ -194,7 +194,7 @@ tools:replace="android:allowBackup">
 
 4. Add the following inside the `<activity android:name=".MainActivity" ....>`,
 
-```
+```XML
 <intent-filter>
 <action android:name="yourapp.bundle.IBMPushNotification" />
 <category android:name="android.intent.category.DEFAULT" />
@@ -203,7 +203,7 @@ tools:replace="android:allowBackup">
 
 5. Add the following lines,
 
-```
+```XML
 <activity android:name="com.ibm.mobilefirstplatform.clientsdk.android.push.api.MFPPushNotificationHandler" android:theme="@android:style/Theme.NoDisplay"/>
 
 <service android:exported="true" android:name="com.ibm.mobilefirstplatform.clientsdk.android.push.api.MFPPushIntentService">
