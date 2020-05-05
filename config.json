@@ -1,0 +1,26 @@
+{
+  "source": {
+    "include": [ "./index.js" ],
+    "exclude": [
+      "./.git",
+      "./images/",
+      "./ios/",
+      "./android/",
+      "./LICENSE/",
+      "./scripts/",
+      "./RNBmdPushReact.podspec"
+    ]
+  },
+  "opts": {
+    "package": "package.json",
+    "readme": "README.md",
+    "recurse": true,
+    "destination": "./doc/"
+  },
+  "templates": {
+        "default": {
+            "outputSourceFiles": false
+        }
+    },
+  "plugins": ["plugins/markdown"]
+}
