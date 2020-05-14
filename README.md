@@ -240,7 +240,7 @@ To initialize Push use the following code,
 Push.init({
     "appGUID":"xxxxxx-xxxx-41xxxx67-xxxxx-xxxxx",
     "clientSecret":"xxxxx-xxxxx-xxxx-xxxxx-xxxxxxx",
-    "region":".ng.bluemix.net"
+    "region":"us-south"
 }).then(function(response) {
 
     alert("InitSuccess: " + response);
@@ -276,7 +276,7 @@ var optionsJson = {
 Push.init({
     "appGUID":"xxxxxx-xxxx-41xxxx67-xxxxx-xxxxx",
     "clientSecret":"xxxxx-xxxxx-xxxx-xxxxx-xxxxxxx",
-    "region":".ng.bluemix.net",
+    "region":"us-south",
     "options": optionsJson
 }).then(function(response) {
 
@@ -289,7 +289,7 @@ Push.init({
 
 ```
 
-**IMPORTANT: These are the following supported `regions` - `".ng.bluemix.net", ".eu-gb.bluemix.net" , ".au-syd.bluemix.net", ".eu-de.bluemix.net", ".us-east.bluemix.net", and ".jp-tok.bluemix.net"`
+**IMPORTANT: These are the following supported `regions` - `"us-south", "eu-gb" , "au-syd", "eu-de", "us-east", and "jp-tok"`
 
 
 ## Register for notifications
