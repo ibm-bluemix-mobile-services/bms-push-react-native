@@ -18,7 +18,7 @@ class PushNotification {
      * @param {Object} config  The push initialise parameters like appGUID, clientSecret,region etc.
      * @return The PushNotification object for calls to be linked. 
      */
-    init(config: Object) {
+    init(config) {
         config.hasOption = false;
         console.log("Not Found.");
         Object.keys(config).forEach(key => {
@@ -36,7 +36,7 @@ class PushNotification {
      * @param {Object} options  The push register parameter like userId.
      * @return Response from the server. 
      */
-    register(options: Object) {
+    register(options) {
         return PushModule.registerDevice(options);
     }
 
@@ -64,7 +64,7 @@ class PushNotification {
      * @param {string} tag  The tag name.
      * @return Response from the server. 
      */
-    subscribe(tag: string) {
+    subscribe(tag) {
         return PushModule.subscribe(tag);
     }
 
@@ -74,7 +74,7 @@ class PushNotification {
      * @param {string} tag  The tag name.
      * @return Response from the server. 
      */
-    unsubscribe(tag: string) {
+    unsubscribe(tag) {
         return PushModule.unsubscribe(tag);
     }
 

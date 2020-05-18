@@ -1,0 +1,11 @@
+cd ~/Documents;
+git clone https://ibm-bluemix-mobile-services:${GH_TOKEN}@github.com/ibm-bluemix-mobile-services/bms-push-react-native.git;
+cd bms-push-react-native;
+git remote rm origin;
+git remote add origin https://ibm-bluemix-mobile-services:${GH_TOKEN}@github.com/ibm-bluemix-mobile-services/bms-push-react-native.git;
+echo $token >> $HOME/.npmrc;
+version=$(jq '.version' package.json | tr -d '"');
+#git tag "${version}";
+#git push origin --tags;
+#npm publish;
+echo "Published react-native Push plugin version ${version}";
