@@ -1,8 +1,7 @@
 
-# react-native-bmd-push-react
+# React-Native plugin for IBM Cloud Push Notifications service
 
 IBM Cloud Mobile Services - Client SDK React Native for Push Notifications service
-
 
 The [IBM Cloud Push Notifications service](https://cloud.ibm.com/catalog/services/push-notifications) provides a unified push service to send real-time notifications to mobile and web applications. The SDK enables react-native apps to receive push notifications sent from the service. 
 
