@@ -43,7 +43,7 @@ RCT_EXPORT_METHOD(registerDevice:(NSDictionary*) config resolveCallback:(RCTProm
     
 }
 
-RCT_EXPORT_METHOD(unRegisterDevice:(RCTPromiseResolveBlock) resolve rejectCallback:(RCTPromiseRejectBlock) reject) {
+RCT_EXPORT_METHOD(unregisterDevice:(RCTPromiseResolveBlock) resolve rejectCallback:(RCTPromiseRejectBlock) reject) {
     return [bmsPushReactBinder unregisterDevice:resolve rejecter:reject];
     
 }
