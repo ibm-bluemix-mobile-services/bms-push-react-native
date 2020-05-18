@@ -14,7 +14,7 @@ android:
     - extra-google-m2repository
     - addon-google_apis-google-16
 script:
-  - cd test/ExampleApp && ./gradlew assembleRelease
+  - cd android && ./gradlew assembleRelease
   - if [ "${TRAVIS_PULL_REQUEST}" = "false" ] && [ "${TRAVIS_BRANCH}" = "master" ]; then
       bash scripts/release.sh;
       bash scripts/publish-docs.sh;
