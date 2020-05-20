@@ -498,7 +498,7 @@ public class RNBmdPushReactModule extends ReactContextBaseJavaModule implements 
       default:
       region = BMSClient.REGION_US_SOUTH;
     }
-    return region
+    return region;
   }
 }
 

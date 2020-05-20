@@ -15,12 +15,12 @@ Pod::Spec.new do |s|
   s.xcconfig = {
     "HEADER_SEARCH_PATHS" => "${PODS_ROOT}/Headers/Public/React"
   }
+  s.static_framework = true  
 
   s.dependency "React"
   #s.dependency "others"
-  s.dependency 'BMSPush', '~> 3.4'
+  s.dependency 'BMSPush', '~> 3.6'
   s.swift_versions = "4.0"
-  s.static_framework = true  
 
 end
 
