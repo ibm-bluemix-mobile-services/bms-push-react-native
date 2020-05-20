@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.license      = "MIT"
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
   s.author             = { "author" => "agirijak@in.ibm.com" }
-  s.platform     = :ios, "11.0"
+  s.platform     = :ios, "9.0"
   s.source       = { :git => "https://github.com/author/RNBmdPushReact.git", :tag => "master" }
   s.source_files  = "ios/*.{h,m,swift}"
   s.requires_arc = true
