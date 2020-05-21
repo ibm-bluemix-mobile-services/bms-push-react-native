@@ -85,7 +85,7 @@ public class RNBmdPushReactModule extends ReactContextBaseJavaModule implements 
     // check for values 
     if(checkStringData(appGUID, "appGUID") && checkStringData(clientSecret,"clientSecret") && checkStringData(region,"region")) {
 
-      BMSClient.getInstance().initialize(this.reactContext.getApplicationContext(),region);
+      BMSClient.getInstance().initialize(this.reactContext.getApplicationContext(),this.getRegion(region));
       
       if (config.getBoolean("hasOption")) {
       ReadableMap args = config.getMap("options");
@@ -469,6 +469,36 @@ public class RNBmdPushReactModule extends ReactContextBaseJavaModule implements 
       }
     }
     return array;
+  }
+  /**
+   * Get region for Core SDK.
+   * @param bluemixRegion - New cloud url
+   */
+  private String getRegion(final String bluemixRegion) {
+    String region = BMSClient.REGION_US_SOUTH;
+    switch(bluemixRegion) {
+      case "us-south":
+      region = BMSClient.REGION_US_SOUTH;
+      break;
+      case "eu-gb":
+      region = BMSClient.REGION_UK;
+      break;
+      case "au-syd":
+      region = BMSClient.REGION_SYDNEY;
+      break;
+      case "eu-de":
+      region = BMSClient.REGION_GERMANY;
+      break;
+      case "us-east":
+      region = BMSClient.REGION_US_EAST;
+      break;
+      case "jp-tok":
+      region = BMSClient.REGION_TOKYO;
+      break;
+      default:
+      region = BMSClient.REGION_US_SOUTH;
+    }
+    return region;
   }
 }
 

@@ -117,7 +117,7 @@ import UserNotificationsUI
             return
         }
         
-        BMSClient.sharedInstance.initialize(bluemixRegion: region)
+        BMSClient.sharedInstance.initialize(bluemixRegion: getRegion(region))
         
         if let bmsNotifOptions = config.value(forKey: PUSHOPTIONS) as? NSDictionary  {
             
@@ -424,6 +424,33 @@ import UserNotificationsUI
         push.sendMessageDeliveryStatus(messageId: messageId) { (res, ss, ee) in
             print("Send message status to the Push server")
         }
+    }
+
+     private func getRegion(_ bluemixRegion: String) -> String {
+        var region = BMSClient.Region.usSouth
+        switch bluemixRegion {
+        case "us-south":
+            region = BMSClient.Region.usSouth
+            break;
+        case "eu-gb":
+            region = BMSClient.Region.unitedKingdom
+            break;
+        case "au-syd":
+            region = BMSClient.Region.sydney
+            break;
+        case "eu-de":
+            region = BMSClient.Region.germany
+            break;
+        case "us-east":
+            region = BMSClient.Region.usEast
+            break;
+        case "jp-tok":
+            region = BMSClient.Region.jpTok
+            break;
+        default:
+            region = BMSClient.Region.usSouth
+        }
+        return region
     }
     
 }
