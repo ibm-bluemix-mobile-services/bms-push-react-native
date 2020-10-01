@@ -51,19 +51,22 @@ import UserNotificationsUI
     
     var initPromiseResolve:RCTPromiseResolveBlock?
     var initPromiseReject:RCTPromiseRejectBlock?
+    var hasInvokedPermissionMethod:Bool = false
     
     // MARK: FUNCTIONS
     public func onChangePermission(status: Bool) {
-        
-        print("Push Notification is enabled:  \(status)" as NSString)
-        if status {
-            
-            if(initPromiseResolve != nil) {
-                initPromiseResolve!("IBM cloud Push Notification init successful")
-            }
-        } else {
-            if(initPromiseReject != nil) {
-                initPromiseReject!("400","IBM cloud Push Notification init failed",nil);
+                
+        if !hasInvokedPermissionMethod {
+            hasInvokedPermissionMethod = true
+            if status {
+                
+                if(initPromiseResolve != nil) {
+                    initPromiseResolve!("IBM cloud Push Notification init successful")
+                }
+            } else {
+                if(initPromiseReject != nil) {
+                    initPromiseReject!("400","IBM cloud Push Notification init failed",nil);
+                }
             }
         }
     }
@@ -72,8 +75,7 @@ import UserNotificationsUI
         super.init()
         push =  BMSPushClient.sharedInstance
         push?.delegate = self
-        print("BMSPushReactBinder init")
-        
+
         // NOTIFICATION OBSERVERS FOR APPDELEGATE METHODS
         NotificationCenter.default.addObserver(self, selector: #selector(BMSPushReactBinder.didRegisterForRemoteNotifications(notification:)), name: NSNotification.Name(rawValue: REACTBMDPushDidRegisterForRemoteNotificationsWithDeviceToken), object: nil)
         
@@ -328,7 +330,7 @@ import UserNotificationsUI
     @objc func didRegisterForRemoteNotifications(notification:Notification) {
         
         guard let token = notification.object as? Data else {
-            print("Error wile getting token")
+            print("Error while getting token")
             return
         }
         bmsPushToken = token
@@ -375,7 +377,7 @@ import UserNotificationsUI
             }
         } else {
             
-            print("Error in token")
+            print("Empty token or register call is yet to be invoked")
         }
     }
     
@@ -422,7 +424,6 @@ import UserNotificationsUI
         
         let messageId:String = jsonResponse.value(forKey: "nid") as! String
         push.sendMessageDeliveryStatus(messageId: messageId) { (res, ss, ee) in
-            print("Send message status to the Push server")
         }
     }
 
