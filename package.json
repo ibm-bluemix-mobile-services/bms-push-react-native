@@ -1,14 +1,13 @@
-
 {
   "name": "bmd-push-react-native",
-  "version": "1.4.1",
+  "version": "1.4.4",
   "description": "IBM Cloud Push Notifications service React Native SDK",
   "main": "index.js",
   "author": "IBM Cloud Mobile Service",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "homepage":"https://github.com/ibm-bluemix-mobile-services/bms-push-react-native",
+  "homepage": "https://github.com/ibm-bluemix-mobile-services/bms-push-react-native",
   "keywords": [
     "react-native",
     "react",
@@ -33,5 +32,4 @@
     "type": "git",
     "url": "git+https://github.com/ibm-bluemix-mobile-services/bms-push-react-native.git"
   }
-  
 }
