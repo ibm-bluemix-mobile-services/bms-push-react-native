@@ -51,22 +51,29 @@ import UserNotificationsUI
     
     var initPromiseResolve:RCTPromiseResolveBlock?
     var initPromiseReject:RCTPromiseRejectBlock?
-    var hasInvokedPermissionMethod:Bool = false
+
+    var hasInvokedInitSuccess:Bool = false
+    var hasInvokedInitReject:Bool = false
+    
+    var hasInvokedRegisterSuccess:Bool = false
+    var hasInvokedRegisterReject:Bool = false
     
     // MARK: FUNCTIONS
     public func onChangePermission(status: Bool) {
                 
-        if !hasInvokedPermissionMethod {
-            hasInvokedPermissionMethod = true
-            if status {
-                
-                if(initPromiseResolve != nil) {
-                    initPromiseResolve!("IBM cloud Push Notification init successful")
-                }
+        if status {
+            if(!hasInvokedInitSuccess && initPromiseResolve != nil) {
+                hasInvokedInitSuccess = true
+                initPromiseResolve!("IBM cloud Push Notification init successful")
             } else {
-                if(initPromiseReject != nil) {
-                    initPromiseReject!("400","IBM cloud Push Notification init failed",nil);
-                }
+                print("IBM cloud Push Notification init successful")
+            }
+        } else {
+            if(!hasInvokedInitReject && initPromiseReject != nil) {
+                hasInvokedInitReject = true
+                initPromiseReject!("400","IBM cloud Push Notification init failed",nil);
+            } else {
+                print("IBM cloud Push Notification init failed")
             }
         }
     }
@@ -317,13 +324,19 @@ import UserNotificationsUI
         
         
         guard let error = notification.object as? Error else {
-            if self.registerPromiseReject != nil {
+            if !self.hasInvokedRegisterReject && self.registerPromiseReject != nil {
+                self.hasInvokedRegisterReject = true
                 self.registerPromiseReject!("\(404)","didFailToRegisterForRemoteNotifications",nil)
+            } else {
+                print("didFailToRegisterForRemoteNotifications")
             }
             return
         }
-        if self.registerPromiseReject != nil {
+        if !self.hasInvokedRegisterReject && self.registerPromiseReject != nil {
+            self.hasInvokedRegisterReject = true
             self.registerPromiseReject!("\(404)","didFailToRegisterForRemoteNotifications",error)
+        } else {
+            print("didFailToRegisterForRemoteNotifications")
         }
     }
     
@@ -348,12 +361,14 @@ import UserNotificationsUI
                     if (!error.isEmpty) {
                         let message = error.description
                         // call error callback
-                        if self.registerPromiseReject != nil {
+                        if !self.hasInvokedRegisterReject && self.registerPromiseReject != nil {
+                            self.hasInvokedRegisterReject = true
                             self.registerPromiseReject!("\(statusCode ?? 404)",message,error as? Error)
                         }
                     }
                     else {
-                        if self.registerPromiseResolve != nil {
+                        if !self.hasInvokedRegisterSuccess && self.registerPromiseResolve != nil {
+                            self.hasInvokedRegisterSuccess = true
                             self.registerPromiseResolve!(response)
                         }
                     }
@@ -364,12 +379,14 @@ import UserNotificationsUI
                     if (!error.isEmpty) {
                         let message = error.description
                         // call error callback
-                        if self.registerPromiseReject != nil {
+                        if !self.hasInvokedRegisterReject && self.registerPromiseReject != nil {
+                            self.hasInvokedRegisterReject = true
                             self.registerPromiseReject!("\(statusCode ?? 404)",message,error as? Error)
                         }
                     }
                     else {
-                        if self.registerPromiseResolve != nil {
+                        if !self.hasInvokedRegisterSuccess && self.registerPromiseResolve != nil {
+                            self.hasInvokedRegisterSuccess = true
                             self.registerPromiseResolve!(response)
                         }
                     }
