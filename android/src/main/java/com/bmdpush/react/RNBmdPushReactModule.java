@@ -478,25 +478,28 @@ public class RNBmdPushReactModule extends ReactContextBaseJavaModule implements 
     String region = BMSClient.REGION_US_SOUTH;
     switch(bluemixRegion) {
       case "us-south":
-      region = BMSClient.REGION_US_SOUTH;
-      break;
+          region = BMSClient.REGION_US_SOUTH;
+          break;
       case "eu-gb":
-      region = BMSClient.REGION_UK;
-      break;
+          region = BMSClient.REGION_UK;
+          break;
       case "au-syd":
-      region = BMSClient.REGION_SYDNEY;
-      break;
+          region = BMSClient.REGION_SYDNEY;
+          break;
       case "eu-de":
-      region = BMSClient.REGION_GERMANY;
-      break;
+          region = BMSClient.REGION_GERMANY;
+          break;
       case "us-east":
-      region = BMSClient.REGION_US_EAST;
-      break;
+          region = BMSClient.REGION_US_EAST;
+          break;
+      case "jp-osa":
+          region = BMSClient.REGION_JP_OSA;
+          break;
       case "jp-tok":
-      region = BMSClient.REGION_TOKYO;
-      break;
+          region = BMSClient.REGION_TOKYO;
+          break;
       default:
-      region = BMSClient.REGION_US_SOUTH;
+          region = BMSClient.REGION_US_SOUTH;
     }
     return region;
   }

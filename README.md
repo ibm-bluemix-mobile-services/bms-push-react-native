@@ -303,7 +303,7 @@ Push.init({
 
 ```
 
-**IMPORTANT: These are the following supported `regions` - `"us-south", "eu-gb" , "au-syd", "eu-de", "us-east", and "jp-tok"`
+**IMPORTANT: These are the following supported `regions` - `"us-south", "eu-gb" , "au-syd", "eu-de", "us-east", "jp-osa" and "jp-tok"`
 
 
 ## Register for notifications
