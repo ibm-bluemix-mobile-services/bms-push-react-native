@@ -492,11 +492,11 @@ public class RNBmdPushReactModule extends ReactContextBaseJavaModule implements 
       case "us-east":
       region = BMSClient.REGION_US_EAST;
       break;
-      case "jp-tok":
-      region = BMSClient.REGION_TOKYO;
-      break;
       case "jp-osa":
       region = BMSClient.REGION_JP_OSA;
+      break;
+      case "jp-tok":
+      region = BMSClient.REGION_TOKYO;
       break;
       default:
       region = BMSClient.REGION_US_SOUTH;
