@@ -465,9 +465,6 @@ import UserNotificationsUI
         case "jp-tok":
             region = BMSClient.Region.jpTok
             break;
-        case "jp-osa":
-            region = BMSClient.Region.jpOsa
-            break;
         default:
             region = BMSClient.Region.usSouth
         }
